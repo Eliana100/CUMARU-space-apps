@@ -1,0 +1,52 @@
+/* src/index.css */
+@import url('mapbox-gl/dist/mapbox-gl.css'); /* Manter o CSS do Mapbox */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globais personalizados podem ser adicionados aqui se forem absolutamente necessários e não puderem ser feitos com Tailwind */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Algumas classes customizadas do Map.jsx */
+.marker-pin {
+  /* Basic styling for the custom marker pin */
+  width: 28px; /* Adjusted size */
+  height: 28px; /* Adjusted size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red; /* Icon color */
+  font-size: 24px;
+}
+.marker-pin svg {
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4)); /* Subtle shadow */
+}
+
+/* Para o estilo do scrollbar nos sidebars e modal */
+/* Firefox */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent; /* thumb and track color */
+}
+
+/* Chrome, Edge, Safari */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5); /* Tailwind gray-400 com opacidade */
+  border-radius: 4px;
+  border: 2px solid transparent;
+}
