@@ -6,7 +6,7 @@ import SidebarRight from './components/Sidebar/SiderbarRight'; 
 import Map from './components/Map/Map';
 import Footer from './components/Footer/Footer';
 import AlertModal from './components/AlertModal/AlertModal';
-// 1. Importa o TranslationProvider que acabamos de criar
+// 1. Importa o TranslationProvider
 import { TranslationProvider } from './context/TranslationContext'; 
 
 function App() {
@@ -42,8 +42,6 @@ function App() {
     fetchMetrics();
   }, []); 
 
-  // O componente principal (App) é onde a lógica da aplicação vive, mas
-  // o Provider deve ser usado no nível mais alto do JSX renderizado.
   const AppContent = () => (
     <div className="flex flex-col h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <Header currentView={mapView} setMapView={setMapView} />
