@@ -97,8 +97,6 @@ const MOCKED_MAP_DATA = {
     ]
   }
 };
-// --- FIM DOS DADOS SIMULADOS ---
-
 
 // --- FUNÇÕES DO CONTROLLER ---
 
@@ -114,7 +112,7 @@ export const getGlobalAlerts = async (req, res) => {
     if (!nasaResponse.ok) throw new Error(`EONET API failed with status ${nasaResponse.status}`);
     const data = await nasaResponse.json();
 
-    // Mapeia os dados da NASA para o formato que seu front-end espera
+    // Mapeia os dados da NASA
     const formattedAlerts = data.events.map(event => {
       // Tenta extrair a coordenada mais recente (formato GeoJSON [lng, lat])
       const coords = event.geometries?.[0]?.coordinates;
@@ -151,7 +149,6 @@ export const getGlobalAlerts = async (req, res) => {
 
 export const getCountryAlerts = (req, res) => {
   const { countryName } = req.params;
-  // NOTE: Para usar dados reais aqui, você precisaria de uma API que filtra por país (ex: dados do INPE/Brasil)
   const alerts = MOCKED_DATA.countryAlerts[countryName] || MOCKED_DATA.globalAlerts;
   res.json(alerts);
 };
@@ -179,7 +176,7 @@ export const getMapData = (req, res) => {
 };
 
 export const getGeneralMetrics = (req, res) => {
-  // Retorna métricas simuladas (idealmente, isto também viria de um serviço externo)
+  // Retorna métricas simuladas
   const metrics = {
     generalMetrics: 14,
     activeSatellites: Math.floor(Math.random() * (20 - 10 + 1)) + 10, 
